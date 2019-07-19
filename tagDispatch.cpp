@@ -1,3 +1,4 @@
+#include <utility>
 #include <iostream>
 #include <type_traits>
 
@@ -17,7 +18,7 @@ template<typename T>
 void eatFloatingPoint(T&& meal)
 {
 	//eatFloatingPointImpl(meal, std::is_floating_point<std::remove_reference_t<T>>()); //cpp14
-	eatFloatingPointImpl(meal, std::is_floating_point<typename std::remove_reference<T>::type>()); //cpp11
+	eatFloatingPointImpl(std::forward<T>(meal), std::is_floating_point<typename std::remove_reference<T>::type>()); //cpp11
 }
 
 int main()
