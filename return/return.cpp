@@ -3,9 +3,9 @@
 struct S
 {
 	S() = default;
-	S& operator=(const S&){ std::cout<<__func__<<" const S&\n"; }
+	S& operator=(const S&){ std::cout<<__func__<<" const S&\n"; return *this;}
 	S(const S&){ std::cout<<__func__<<" const S&\n"; }
-	S& operator=(S&&){ std::cout<<__func__<<" S(S&&)\n"; }
+	S& operator=(S&&){ std::cout<<__func__<<" S(S&&)\n";  return *this;}
 	S(S&&){ std::cout<<__func__<<" S(S&&)\n"; }
 	void use() const{std::cout<<__func__<<"\n"; }
 };
