@@ -1,3 +1,3 @@
 project(tag_dispatch3)
 
-add_executable(return tag_dispatch3.cpp)
+add_executable(tag_dispatch3 tag_dispatch3.cpp)
