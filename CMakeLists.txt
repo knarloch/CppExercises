@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 23)
 
 enable_testing()
 
+add_subdirectory(calculator)
 add_subdirectory(fill_color)
 add_subdirectory(highway_toll)
 add_subdirectory(return)
