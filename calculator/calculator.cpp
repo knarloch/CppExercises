@@ -18,7 +18,12 @@ std::pair<int, size_t> CalculateOperand(int x, const char *expr, size_t begin) {
         case '7':
         case '8':
         case '9':
-            return {expr[begin] - '0', begin + 1};
+        case '-':
+        {
+            char* cursor = nullptr;
+            auto val = std::strtoll(expr + begin, &cursor, 10);
+            return {val, cursor - expr};
+        }
         case 'x':
             return {x, begin + 1};
         case '(': {
@@ -67,6 +72,11 @@ int main() {
             std::string expr = "{2mul(xadd7),(6subx)mulx,2add((xadd3)mul2)}";
             auto result = Calculate(0, expr);
             assert((std::vector<int>{14, 0, 8} == result));
+        }
+        {
+            std::string expr = "{20mul(xadd7),(-16subx)mulx}";
+            auto result = Calculate(2, expr);
+            assert((std::vector<int>{180, -36} == result));
         }
     } catch (const std::exception &e) {
         std::cerr << e.what() << std::endl;
