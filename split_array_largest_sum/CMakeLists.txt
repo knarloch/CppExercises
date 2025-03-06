@@ -1,0 +1,4 @@
+add_executable(split_array_largest_sum split_array_largest_sum.cpp)
+
+add_test(NAME split_array_largest_sum COMMAND split_array_largest_sum)
+
