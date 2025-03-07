@@ -30,7 +30,10 @@ namespace std{
 
 class Solution {
 public:
-    int splitArray(const std::vector<int> &nums, int k) {
+    int splitArray(std::vector<int> nums, int k) {
+        for(auto i = 1; i< nums.size(); i++){
+            nums[i] += nums[i-1];
+        }
         if (nums.empty()) {
             return 0;
         }
@@ -40,7 +43,7 @@ public:
 
 private:
 
-    int splitArray(const std::vector<int> &nums, size_t begin, size_t end, size_t k) {
+    int splitArray(const std::vector<int> &partial_sums, size_t begin, size_t end, size_t k) {
         CacheIndex cache_index{begin, end, k};
         auto it = cache.find(cache_index);
         if (it != cache.end()) {
@@ -50,12 +53,12 @@ private:
 
         int result = 0;
         if (k == 1) {
-            result = std::accumulate(nums.begin() + begin, nums.begin() + end, 0);
+            result = partial_sums[end -1] - (begin == 0 ? 0 : partial_sums[begin -1]);
         } else {
-            int best = std::max(splitArray(nums, begin, begin + 1, 1), splitArray(nums, begin + 1, end, k - 1));
+            int best = std::max(splitArray(partial_sums, begin, begin + 1, 1), splitArray(partial_sums, begin + 1, end, k - 1));
             for (int i = 2; end - (begin + i) >= k - 1; i++) {
-                int candidate = std::max(splitArray(nums, begin, begin + i, 1),
-                                         splitArray(nums, begin + i, end, k - 1));
+                int candidate = std::max(splitArray(partial_sums, begin, begin + i, 1),
+                                         splitArray(partial_sums, begin + i, end, k - 1));
                 best = std::min(candidate, best);
             }
             result = best;
