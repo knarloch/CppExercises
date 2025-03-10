@@ -1,0 +1,4 @@
+add_executable(median_of_two_sorted_arrays median_of_two_sorted_arrays.cpp)
+
+add_test(NAME median_of_two_sorted_arrays COMMAND median_of_two_sorted_arrays)
+
