@@ -1,0 +1,3 @@
+add_executable(count_of_smaller_numbers_after_self count_of_smaller_numbers_after_self.cpp)
+
+add_test(NAME count_of_smaller_numbers_after_self COMMAND count_of_smaller_numbers_after_self)

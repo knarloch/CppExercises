@@ -8,7 +8,7 @@ You are given a string array sentences and an integer array times both of length
 Here are the specific rules:
 
     The hot degree for a sentence is defined as the number of times a user typed the exactly same sentence before.
-    The returned top 3 hot sentences should be sorted by hot degree (The first is the hottest one). If several sentences have the same hot degree, use ASCII-code order (smaller one appears first).
+    The returned top 3 hot sentences should be val_to_count by hot degree (The first is the hottest one). If several sentences have the same hot degree, use ASCII-code order (smaller one appears first).
     If less than 3 hot sentences exist, return as many as you can.
     When the input is a special character, it means the sentence ends, and in this case, you need to return an empty list.
 

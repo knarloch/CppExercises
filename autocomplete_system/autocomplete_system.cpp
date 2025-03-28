@@ -24,7 +24,6 @@ struct PartialResult{
     PartialResult(std::string prefix_, size_t hotness_, std::shared_ptr<HotTie> position_):prefix{std::move(prefix_)}, hotness{hotness_}, position{std::move(position_)}{};
 };
 
-static bool operator<(const Entry&l, const Entry&r);
 static bool operator<(const PartialResult&l, const PartialResult&r){
     if(l.hotness == r.hotness){
         return l.prefix > r.prefix;
