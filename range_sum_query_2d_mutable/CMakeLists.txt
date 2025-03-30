@@ -1,0 +1,4 @@
+add_executable(range_sum_query_2d_mutable range_sum_query_2d_mutable.cpp)
+
+add_test(NAME range_sum_query_2d_mutable COMMAND range_sum_query_2d_mutable)
+
