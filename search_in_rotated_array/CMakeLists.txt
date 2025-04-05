@@ -1,0 +1,4 @@
+add_executable(search_in_rotated_array search_in_rotated_array.cpp)
+
+add_test(NAME search_in_rotated_array COMMAND search_in_rotated_array)
+
