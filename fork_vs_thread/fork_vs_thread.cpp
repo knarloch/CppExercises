@@ -12,7 +12,7 @@ void print_duration(std::string tag, int times, std::chrono::nanoseconds result)
     tag.resize(24, ' ');
     auto avg_duration = (result.count()/10e3 ) / times;
     std::cout << tag << std::setw(7) << times << " times: " << std::setw(15)<< result.count() << "ns (" << std::setw(5)
-              << std::setprecision(3) << std::fixed << avg_duration << "us each)\n";
+              << std::setprecision(3) << std::fixed << avg_duration << "us each)"<<std::endl;
 }
 
 std::chrono::nanoseconds fork_and_wait(int times) {
@@ -85,7 +85,7 @@ std::chrono::nanoseconds thread_work_and_join(int times, std::function<void()> d
 }
 
 int main() {
-    int n = 1000;
+    int n = 100;
     thread_and_join(n);
     fork_and_wait(n);
     thread_work_and_join(n, do_some_work);
