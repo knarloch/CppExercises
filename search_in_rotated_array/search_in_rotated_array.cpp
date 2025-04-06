@@ -8,15 +8,15 @@ int search_in_rotated_array(int target, const std::vector<int>& array){
     }
 
     auto pp = std::partition_point(array.begin(), array.end(), [first_partition_min = array[0]](int value){
-        return value<first_partition_min;
+        return value>=first_partition_min;
     });
 
-    auto candidate1 = std::find(array.begin(), pp, target);
-    if(candidate1 < pp){
+    auto candidate1 = std::lower_bound(array.begin(), pp, target);
+    if(candidate1 < pp and *candidate1 == target){
         return candidate1-array.begin();
     }
-    auto candidate2 = std::find(pp, array.end(), target);
-    if(candidate2 < array.end()){
+    auto candidate2 = std::lower_bound(pp, array.end(), target);
+    if(candidate2 < array.end() and *candidate2 == target){
         return candidate2-array.begin();
     }
     return -1;
