@@ -1,0 +1,4 @@
+add_executable(longest_common_subsequence longest_common_subsequence.cpp)
+
+add_test(NAME longest_common_subsequence COMMAND longest_common_subsequence)
+
