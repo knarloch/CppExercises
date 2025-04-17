@@ -1,0 +1,3 @@
+# CppExercises
+
+## Kruskals algorithm
